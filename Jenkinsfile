@@ -32,7 +32,7 @@ pipeline {
             }
             steps {
                 echo "Deploying, because we are on ${env.BRANCH_NAME}"
-                sh "wget https://github.com/davegarvey/tyk-sync-binary/releases/download/1/tyk-sync"
+                sh "wget https://github.com/davegarvey/tyk-jenkins-cicd-sync/releases/download/1/tyk-sync-1.0.0"
                 sh "chmod +x tyk-sync"
                 sh "./tyk-sync publish -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} ${env.WORKSPACE}/.git -b refs/heads/${env.BRANCH_NAME}"
                 sh "./tyk-sync update -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} ${env.WORKSPACE}/.git -b refs/heads/${env.BRANCH_NAME}"
