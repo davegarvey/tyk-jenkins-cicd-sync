@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('test') {
+        /*stage('test') {
             steps {
                 script {
                     def apiDefs = findFiles(glob: 'api-*.json')
@@ -25,7 +25,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         stage('deploy') {
             when {
                 expression { env.BRANCH_NAME == 'master' }
