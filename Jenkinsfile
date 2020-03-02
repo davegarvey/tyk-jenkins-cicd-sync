@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('test') {
+        /*stage('test') {
             steps {
                 script {
                     def apiDefs = findFiles(glob: 'api-*.json')
@@ -25,16 +25,17 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         stage('deploy') {
             when {
                 expression { env.BRANCH_NAME == 'master' }
             }
             steps {
                 echo "Deploying, because we are on ${env.BRANCH_NAME}"
-                sh "wget https://github.com/asoorm/tyk-git/releases/download/0.1-alpha/tyk-git"
-                sh "chmod +x tyk-git"
-                sh "./tyk-git sync -d ${env.TYK_DASH_URL} -o ${env.TYK_ORG_ID} -s ${env.TYK_DASH_SECRET} ${env.WORKSPACE}/.git -b refs/heads/${env.BRANCH_NAME}"
+                sh "wget https://github.com/davegarvey/tyk-jenkins-cicd-sync/releases/download/1/tyk-sync-1.0.0"
+                sh "chmod +x tyk-sync-1.0.0"
+                sh "./tyk-sync-1.0.0 publish -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} ${env.WORKSPACE}/.git -b refs/heads/${env.BRANCH_NAME}"
+                sh "./tyk-sync-1.0.0 update -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} ${env.WORKSPACE}/.git -b refs/heads/${env.BRANCH_NAME}"
             }
         }
     }
