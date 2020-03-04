@@ -1,8 +1,8 @@
 {
-  "id": "5e5f5d3d798d990001bca58a",
-  "name": "Tyk Sync Test 4",
-  "slug": "tyk-sync-test",
-  "api_id": "2edfdf77ecc541f37a94796b6c4f65c7",
+  "id": "5dd4b899151236000193c178",
+  "name": "API B",
+  "slug": "api-b",
+  "api_id": "7780c0c06b7b4ebd7d5125cdd7e8c49c",
   "org_id": "5d663cfe03b53700015b975e",
   "use_keyless": false,
   "use_oauth2": false,
@@ -102,7 +102,7 @@
   },
   "proxy": {
     "preserve_host_header": false,
-    "listen_path": "/tyk-sync-test/",
+    "listen_path": "/api-b/",
     "target_url": "http://httpbin.org/",
     "disable_strip_slash": false,
     "strip_listen_path": true,

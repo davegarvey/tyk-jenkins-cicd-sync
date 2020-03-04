@@ -1,0 +1,32 @@
+{
+  "_id": "5e0dc2e38013e800018738f9",
+  "id": "5e0dc2e38013e800018738f9",
+  "org_id": "5d663cfe03b53700015b975e",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renewal_rate": 3600,
+  "access_rights": {
+    "70b3befa20b9438f541f3f66b89606fe": {
+      "api_name": "OAuth API",
+      "api_id": "70b3befa20b9438f541f3f66b89606fe",
+      "versions": [
+        "Default"
+      ],
+      "allowed_urls": []
+    }
+  },
+  "hmac_enabled": false,
+  "active": true,
+  "name": "OAuth Policy 2",
+  "is_inactive": false,
+  "date_created": "2020-01-02T10:16:03.595Z",
+  "tags": [],
+  "key_expires_in": 0,
+  "partitions": {
+    "quota": false,
+    "rate_limit": false,
+    "acl": false
+  },
+  "last_updated": "1577960163"
+}

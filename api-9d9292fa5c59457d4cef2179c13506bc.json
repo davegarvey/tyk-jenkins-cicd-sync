@@ -1,10 +1,10 @@
 {
-  "id": "5e5f5d3d798d990001bca58a",
-  "name": "Tyk Sync Test 4",
-  "slug": "tyk-sync-test",
-  "api_id": "2edfdf77ecc541f37a94796b6c4f65c7",
+  "id": "5d66d3ec03b5370001c67da8",
+  "name": "GRPC Plugin API",
+  "slug": "grpc-plugin-api",
+  "api_id": "9d9292fa5c59457d4cef2179c13506bc",
   "org_id": "5d663cfe03b53700015b975e",
-  "use_keyless": false,
+  "use_keyless": true,
   "use_oauth2": false,
   "use_openid": false,
   "openid_options": {
@@ -21,7 +21,7 @@
     "param_name": "",
     "use_cookie": false,
     "cookie_name": "",
-    "auth_header_name": "Authorization",
+    "auth_header_name": "",
     "use_certificate": false
   },
   "use_basic_auth": false,
@@ -34,7 +34,7 @@
   "upstream_certificates": {},
   "pinned_public_keys": {},
   "enable_jwt": false,
-  "use_standard_auth": true,
+  "use_standard_auth": false,
   "enable_coprocess_auth": false,
   "jwt_signing_method": "",
   "jwt_source": "",
@@ -102,7 +102,7 @@
   },
   "proxy": {
     "preserve_host_header": false,
-    "listen_path": "/tyk-sync-test/",
+    "listen_path": "/grpc-plugin-api/",
     "target_url": "http://httpbin.org/",
     "disable_strip_slash": false,
     "strip_listen_path": true,
@@ -147,7 +147,7 @@
       "extractor_config": {}
     }
   },
-  "custom_middleware_bundle": "",
+  "custom_middleware_bundle": "bundle.zip",
   "cache_options": {
     "cache_timeout": 60,
     "enable_cache": true,

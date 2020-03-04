@@ -1,0 +1,23 @@
+{
+  "_id": "5d66d3ed03b5370001c67dae",
+  "id": "5d65e74601d78b00017dc3d8",
+  "org_id": "5d663cfe03b53700015b975e",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renewal_rate": 3600,
+  "access_rights": {},
+  "hmac_enabled": false,
+  "active": true,
+  "name": "httpbin34 policy",
+  "is_inactive": false,
+  "date_created": "2019-08-28T02:30:30.625Z",
+  "tags": [],
+  "key_expires_in": 0,
+  "partitions": {
+    "quota": false,
+    "rate_limit": false,
+    "acl": false
+  },
+  "last_updated": "1566959430"
+}

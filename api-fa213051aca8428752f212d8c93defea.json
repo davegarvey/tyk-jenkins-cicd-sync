@@ -1,8 +1,8 @@
 {
-  "id": "5e5f5d3d798d990001bca58a",
-  "name": "Tyk Sync Test 4",
-  "slug": "tyk-sync-test",
-  "api_id": "2edfdf77ecc541f37a94796b6c4f65c7",
+  "id": "5dea13fb151236000193c17b",
+  "name": "Events Receiver API",
+  "slug": "events-receiver-api",
+  "api_id": "fa213051aca8428752f212d8c93defea",
   "org_id": "5d663cfe03b53700015b975e",
   "use_keyless": false,
   "use_oauth2": false,
@@ -73,7 +73,21 @@
           "black_list": []
         },
         "use_extended_paths": true,
-        "extended_paths": {},
+        "extended_paths": {
+          "ignored": [
+            {
+              "path": "auth-fail",
+              "method_actions": {
+                "GET": {
+                  "action": "reply",
+                  "code": 200,
+                  "data": "Auth fail event received",
+                  "headers": {}
+                }
+              }
+            }
+          ]
+        },
         "global_headers": {},
         "global_headers_remove": [],
         "global_size_limit": 0,
@@ -102,7 +116,7 @@
   },
   "proxy": {
     "preserve_host_header": false,
-    "listen_path": "/tyk-sync-test/",
+    "listen_path": "/events-receiver-api/",
     "target_url": "http://httpbin.org/",
     "disable_strip_slash": false,
     "strip_listen_path": true,

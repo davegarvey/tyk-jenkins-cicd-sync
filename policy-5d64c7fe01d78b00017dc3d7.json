@@ -1,0 +1,32 @@
+{
+  "_id": "5d66d3ed03b5370001c67dad",
+  "id": "5d64c7fe01d78b00017dc3d7",
+  "org_id": "5d663cfe03b53700015b975e",
+  "rate": 1000,
+  "per": 60,
+  "quota_max": -1,
+  "quota_renewal_rate": 3600,
+  "access_rights": {
+    "f9fd591c7cdc4f5770b2ef4e6a1dd905": {
+      "api_name": "JWT API",
+      "api_id": "f9fd591c7cdc4f5770b2ef4e6a1dd905",
+      "versions": [
+        "Default"
+      ],
+      "allowed_urls": []
+    }
+  },
+  "hmac_enabled": false,
+  "active": true,
+  "name": "JWT Policy",
+  "is_inactive": false,
+  "date_created": "2019-08-27T06:04:46.953Z",
+  "tags": [],
+  "key_expires_in": 0,
+  "partitions": {
+    "quota": false,
+    "rate_limit": false,
+    "acl": false
+  },
+  "last_updated": "1566885886"
+}
