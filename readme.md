@@ -9,7 +9,7 @@
 1. Dev uses git to pull repo so that they have the latest version of the files
 2. Dev uses tyk-sync to `publish` updates into their local Tyk installation so that their local Tyk install is up-to-date
 3. Dev uses Tyk Dashboard to work on any changes to the APIs/Policies on their local Tyk installation
-4. Dev uses tyk-sync to dump their updated API/Policies from their local Tyk installation
+4. Dev uses tyk-sync to `dump` their updated API/Policies from their local Tyk installation to disk
 5. Dev uses git to create a new branch to store their updated files
 6. Jenkins detects change to source, triggers build
 7. Jenkins runs tests but does not deploy as change is in a branch
@@ -18,6 +18,19 @@
 10. Jenkins detects change to source, triggers build
 11. If tests fail then go back to step 3
 12. Jenkins uses tyk-sync to `sync` updates into target environment
+
+
+### Example
+
+Assumes git repo is already cloned locally.
+
+secret `840ef9bb6d2347d96dd17e6c5ecddf7a` is for environment 1
+secret `00ada3640917496f42820d5742a1fc59` is for environment 2
+
+1. `git checkout master && git remote update && git pull`
+2. `tyk-sync publish -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -p .`
+3. `tyk-sync dump -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -t .`
+
 
 ## Tyk Sync Commands
 
