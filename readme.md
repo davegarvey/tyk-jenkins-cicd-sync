@@ -33,7 +33,7 @@ secret `00ada3640917496f42820d5742a1fc59` is for environment 2
 1. Dump changes to disk: `tyk-sync dump -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -t .`
 1. Commit changes to git and push to repo: `git add . && git commit -m "my changes" && git push`
 1. Run build on Jenkins for branch
-1. If tests pass then merge branch into master and delete branch: `git checkout master && git merge my-branch && git push && git branch -d my-branch`
+1. If tests pass then merge branch into master and delete branch: `git checkout master && git merge my-branch && git push && git branch -d my-branch && git push origin --delete my-branch`
 1. Run build on Jenkins for master
 1. APIs will now be updated on target environment
 
