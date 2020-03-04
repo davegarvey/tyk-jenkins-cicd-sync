@@ -8,24 +8,24 @@ pipeline {
     }
 
     stages {
-        stage('test') {
-            steps {
-                script {
-                    def apiDefs = findFiles(glob: 'api-*.json')
+        // stage('test') {
+        //     steps {
+        //         script {
+        //             def apiDefs = findFiles(glob: 'api-*.json')
 
-                    apiDefs.each { apiDef ->
-                        def pJson = readJSON file: env.WORKSPACE + "/" + apiDef.name
-                        println "Testing ${pJson.name}: ${pJson.api_id}"
+        //             apiDefs.each { apiDef ->
+        //                 def pJson = readJSON file: env.WORKSPACE + "/" + apiDef.name
+        //                 println "Testing ${pJson.name}: ${pJson.api_id}"
 
-                        // println "ensuring api is authenticated"
-                        // assertAuthenticated(pJson)
+        //                 // println "ensuring api is authenticated"
+        //                 // assertAuthenticated(pJson)
 
-                        // println "ensuring api has appropriate tags"
-                        // assertWhitelistedTag(pJson)
-                    }
-                }
-            }
-        }
+        //                 // println "ensuring api has appropriate tags"
+        //                 // assertWhitelistedTag(pJson)
+        //             }
+        //         }
+        //     }
+        // }
         stage('deploy') {
             when {
                 expression { env.BRANCH_NAME == 'master' }
