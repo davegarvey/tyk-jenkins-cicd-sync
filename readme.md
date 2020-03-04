@@ -3,21 +3,23 @@
 - API definitions held in Git repo. 
 - Files named in `api-<API_ID>.json` format.
 - `.tyk.json` file used as directory for API and policy files.
+- 'Pipeline Utility Steps' Jenkins plugin is required.
 
 ## Workflow
 
 1. Dev uses git to pull repo so that they have the latest version of the files
-2. Dev uses tyk-sync to `publish` updates into their local Tyk installation so that their local Tyk install is up-to-date
-3. Dev uses Tyk Dashboard to work on any changes to the APIs/Policies on their local Tyk installation
-4. Dev uses tyk-sync to `dump` their updated API/Policies from their local Tyk installation to disk
-5. Dev uses git to create a new branch to store their updated files
-6. Jenkins detects change to source, triggers build
-7. Jenkins runs tests but does not deploy as change is in a branch
-8. If test fails then go back to step 3
-9. Dev uses git to create pull request to merge branch into master
-10. Jenkins detects change to source, triggers build
-11. If tests fail then go back to step 3
-12. Jenkins uses tyk-sync to `sync` updates into target environment
+1. Dev uses tyk-sync to `publish` updates into their local Tyk installation so that their local Tyk install is up-to-date
+1. Dev uses git to create a new branch to store their updated files
+1. Dev uses Tyk Dashboard to work on any changes to the APIs/Policies on their local Tyk installation
+1. Dev uses tyk-sync to `dump` their updated API/Policies from their local Tyk installation to disk
+1. Dev uses git to commit change to the new branch
+1. Dev uses Jenkins to build
+1. Jenkins runs tests but does not deploy as change is in a branch
+1. If test fails then go back to step 3
+1. Dev uses git to create pull request to merge branch into master
+1. Jenkins detects change to source, triggers build
+1. If tests fail then go back to step 3
+1. Jenkins uses tyk-sync to `sync` updates into target environment
 
 
 ### Example
