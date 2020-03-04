@@ -14,13 +14,10 @@
 1. Dev uses tyk-sync to `dump` their updated API/Policies from their local Tyk installation to disk
 1. Dev uses git to commit change to the new branch
 1. Dev uses Jenkins to build
-1. Jenkins runs tests but does not deploy as change is in a branch
-1. If test fails then go back to step 3
+1. Jenkins runs tests but does not deploy as change is in a branch, if test fails then go back to step 4
 1. Dev uses git to create pull request to merge branch into master
-1. Jenkins detects change to source, triggers build
-1. If tests fail then go back to step 3
+1. Jenkins detects change to source, triggers build, if tests fail then go back to step 4
 1. Jenkins uses tyk-sync to `sync` updates into target environment
-
 
 ### Example
 
@@ -29,10 +26,15 @@ Assumes git repo is already cloned locally.
 secret `840ef9bb6d2347d96dd17e6c5ecddf7a` is for environment 1
 secret `00ada3640917496f42820d5742a1fc59` is for environment 2
 
-1. `git checkout master && git remote update && git pull`
-2. `tyk-sync publish -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -p .`
-3. `tyk-sync dump -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -t .`
-
+1. Get latest updates: `git checkout master && git remote update && git pull`
+1. Push updates into Tyk: `tyk-sync publish -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -p .`
+1. Make changes using Tyk Dashboard
+1. Dump changes to disk: `tyk-sync dump -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -t .`
+1. Commit changes to git and push to repo: `git add . && git commit -m "my changes" && git push`
+1. Run build on Jenkins for branch
+1. If tests pass then merge branch into master
+1. Run build on Jenkins for master
+1. APIs will now be updated on target environment
 
 ## Tyk Sync Commands
 
