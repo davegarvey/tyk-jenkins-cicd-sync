@@ -53,3 +53,5 @@ Use the `-o` switch to specify the organisation you want to apply the sync to.
 ### Dump
 
 > Dump will extract policies and APIs from a target (dashboard) and place them in a directory of your choosing. It will also generate a spec file that can be used for sync.
+
+Dump does not delete files, it will update and create files. So deleted APIs will remain as files on the disk, but the reference to the file will be removed from the `.tyk.json` file so that it will not be included in any operations.
