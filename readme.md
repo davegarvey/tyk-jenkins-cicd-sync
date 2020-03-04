@@ -28,11 +28,12 @@ secret `00ada3640917496f42820d5742a1fc59` is for environment 2
 
 1. Get latest updates: `git checkout master && git remote update && git pull`
 1. Push updates into Tyk: `tyk-sync publish -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -p .`
+1. Change to new branch: `git checkout -b my-branch`
 1. Make changes using Tyk Dashboard
 1. Dump changes to disk: `tyk-sync dump -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -t .`
 1. Commit changes to git and push to repo: `git add . && git commit -m "my changes" && git push`
 1. Run build on Jenkins for branch
-1. If tests pass then merge branch into master
+1. If tests pass then merge branch into master: `git checkout master && git merge my-branch && git push`
 1. Run build on Jenkins for master
 1. APIs will now be updated on target environment
 
