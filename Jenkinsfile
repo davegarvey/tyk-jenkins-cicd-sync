@@ -17,8 +17,11 @@ pipeline {
                         def pJson = readJSON file: env.WORKSPACE + "/" + apiDef.name
                         println "Testing ${pJson.name}: ${pJson.api_id}"
 
-                        println "ensuring api is authenticated"
-                        assertAuthenticated(pJson)
+                        println "ensuring API name does not contain 'bob'"
+                        assertApiNameNotContainBob(pJson)
+
+                        // println "ensuring api is authenticated"
+                        // assertAuthenticated(pJson)
 
                         // println "ensuring api has appropriate tags"
                         // assertWhitelistedTag(pJson)
@@ -56,4 +59,8 @@ def static assertWhitelistedTag(api) {
     api.tags.each { tag ->
         assert ["internal", "external"].contains(tag) : "api ${api.name} contains unknown tag ${tag}"
     }
+}
+
+def static assertApiNameNotContainBob(api) {
+    assert api.name.contains("bob") == false : "api ${api.name} name should not contain word 'bob'"
 }
