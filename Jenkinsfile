@@ -17,8 +17,8 @@ pipeline {
                         def pJson = readJSON file: env.WORKSPACE + "/" + apiDef.name
                         println "Testing ${pJson.name}: ${pJson.api_id}"
 
-                        // println "ensuring api is authenticated"
-                        // assertAuthenticated(pJson)
+                        println "ensuring api is authenticated"
+                        assertAuthenticated(pJson)
 
                         // println "ensuring api has appropriate tags"
                         // assertWhitelistedTag(pJson)
