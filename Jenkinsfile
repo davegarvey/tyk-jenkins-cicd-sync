@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        /*stage('test') {
+        stage('test') {
             steps {
                 script {
                     def apiDefs = findFiles(glob: 'api-*.json')
@@ -17,15 +17,15 @@ pipeline {
                         def pJson = readJSON file: env.WORKSPACE + "/" + apiDef.name
                         println "Testing ${pJson.name}: ${pJson.api_id}"
 
-                        println "ensuring api is authenticated"
-                        assertAuthenticated(pJson)
+                        // println "ensuring api is authenticated"
+                        // assertAuthenticated(pJson)
 
-                        println "ensuring api has appropriate tags"
-                        assertWhitelistedTag(pJson)
+                        // println "ensuring api has appropriate tags"
+                        // assertWhitelistedTag(pJson)
                     }
                 }
             }
-        }*/
+        }
         stage('deploy') {
             when {
                 expression { env.BRANCH_NAME == 'master' }
@@ -34,8 +34,7 @@ pipeline {
                 echo "Deploying, because we are on ${env.BRANCH_NAME}"
                 sh "wget https://github.com/davegarvey/tyk-jenkins-cicd-sync/releases/download/1/tyk-sync-1.0.0"
                 sh "chmod +x tyk-sync-1.0.0"
-                sh "./tyk-sync-1.0.0 publish -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} -p ."
-                sh "./tyk-sync-1.0.0 update -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} -p ."
+                sh "./tyk-sync-1.0.0 sync -d ${env.TYK_DASH_URL} -s ${env.TYK_DASH_SECRET} -o ${env.TYK_ORG_ID} -p ."
             }
         }
     }
