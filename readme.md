@@ -34,7 +34,7 @@ Two Tyk Dashboard API secrets are used here: `840ef9bb6d2347d96dd17e6c5ecddf7a` 
 1. Run build on Jenkins for branch
 1. If tests pass then merge branch into master and delete branch: `git checkout master && git merge my-branch && git push && git branch -d my-branch && git push origin --delete my-branch`
 1. Run build on Jenkins for master
-1. APIs will now be updated on target environment
+1. Target environment will now be synchronised with the API and Policy definitions held in the repo.
 
 ## Tyk Sync Commands
 
