@@ -23,8 +23,7 @@
 
 Assumes git repo is already cloned locally.
 
-Environment 1 secret is `840ef9bb6d2347d96dd17e6c5ecddf7a`
-Environment 2 secret is `00ada3640917496f42820d5742a1fc59` (set within Jenkins environment scripts for tyk-sync command usage)
+Two Tyk Dashboard API secrets are used here: `840ef9bb6d2347d96dd17e6c5ecddf7a` and `00ada3640917496f42820d5742a1fc59`. You **must** update these secrets to be the secrets from your system. These secrets are set within Jenkins as environment variables and are referenced by scripts for tyk-sync command usage.
 
 1. Get latest updates: `git checkout master && git remote update && git pull`
 1. Push updates into Tyk: `tyk-sync publish -d http://tyk-dashboard.local:3000/ -s 840ef9bb6d2347d96dd17e6c5ecddf7a -p .`
